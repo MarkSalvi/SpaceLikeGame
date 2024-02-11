@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqc2g8jx0havs"]
+
+[ext_resource type="Texture2D" uid="uid://rwjnsg21k0jh" path="res://textures/background.jpg" id="1_ouha4"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_rk0fr"]
+[ext_resource type="PackedScene" uid="uid://1bdb4doasq8m" path="res://scenes/enemy.tscn" id="3_5goji"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_nnyn6"]
+[ext_resource type="Texture2D" uid="uid://dr51oerrda7mh" path="res://textures/SpaceShooterAssetPack_Ships.png" id="4_m54y5"]
+[ext_resource type="PackedScene" uid="uid://cso5sdp13ayok" path="res://scenes/heart_container.tscn" id="6_etqd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvau7"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx2lt"]
+atlas = ExtResource("4_m54y5")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3fau"]
+atlas = ExtResource("4_m54y5")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1xqf"]
+atlas = ExtResource("4_m54y5")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecgwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx2lt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3fau")
+}],
+"loop": true,
+"name": &"roll_left",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1xqf")
+}],
+"loop": true,
+"name": &"roll_right",
+"speed": 1.0
+}]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_rk0fr")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(958.5, 543)
+scale = Vector2(1.775, 1.50556)
+texture = ExtResource("1_ouha4")
+
+[node name="Enemy" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(531, 134)
+scale = Vector2(5, 5)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(689, 46)
+scale = Vector2(5, 5)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(392, 50)
+scale = Vector2(5, 5)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(857, 73)
+scale = Vector2(5, 5)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(993, 156)
+scale = Vector2(5, 5)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(240, 132)
+scale = Vector2(5, 5)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_5goji")]
+position = Vector2(99, 61)
+scale = Vector2(5, 5)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(545, 696)
+scale = Vector2(2, 2)
+script = ExtResource("3_nnyn6")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("RectangleShape2D_mvau7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ecgwy")
+animation = &"roll_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_mvau7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartContainer" parent="CanvasLayer" instance=ExtResource("6_etqd2")]
+offset_right = 116.0
+offset_bottom = 112.96
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Player/Area2D" to="Player" method="_on_area_2d_input_event"]

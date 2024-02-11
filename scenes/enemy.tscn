@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://1bdb4doasq8m"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6lt6w"]
+[ext_resource type="Texture2D" uid="uid://dr51oerrda7mh" path="res://textures/SpaceShooterAssetPack_Ships.png" id="2_bi63x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu3sd"]
+size = Vector2(7, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2h0i"]
+atlas = ExtResource("2_bi63x")
+region = Rect2(73, 2, 7, 5)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_6lt6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gu3sd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_g2h0i")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gu3sd")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

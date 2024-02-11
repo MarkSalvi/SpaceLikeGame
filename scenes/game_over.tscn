@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1nixlrw2odf6"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_fcipg"]
+[ext_resource type="Texture2D" uid="uid://rwjnsg21k0jh" path="res://textures/background.jpg" id="2_ukp35"]
+[ext_resource type="Texture2D" uid="uid://wxreo5f08w6s" path="res://textures/SpaceShooterAssetPack_IU.png" id="3_nymsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uvai"]
+atlas = ExtResource("3_nymsf")
+region = Rect2(88, 28, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuthu"]
+atlas = ExtResource("3_nymsf")
+region = Rect2(112, 28, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu6t0"]
+atlas = ExtResource("3_nymsf")
+region = Rect2(100, 28, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgf7g"]
+atlas = ExtResource("3_nymsf")
+region = Rect2(125, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ltpo"]
+atlas = ExtResource("3_nymsf")
+region = Rect2(149, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp0ko"]
+atlas = ExtResource("3_nymsf")
+region = Rect2(137, 0, 12, 13)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fcipg")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(959.5, 540.5)
+scale = Vector2(1.77685, 1.49861)
+texture = ExtResource("2_ukp35")
+
+[node name="gameOver" type="Label" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 354.0
+offset_right = 582.0
+offset_bottom = 377.0
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="exitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 8.0
+offset_right = 1022.0
+offset_bottom = 21.0
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_5uvai")
+texture_pressed = SubResource("AtlasTexture_tuthu")
+texture_hover = SubResource("AtlasTexture_lu6t0")
+
+[node name="playAgain" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 13.0
+scale = Vector2(10, 10)
+texture_normal = SubResource("AtlasTexture_pgf7g")
+texture_pressed = SubResource("AtlasTexture_5ltpo")
+texture_hover = SubResource("AtlasTexture_lp0ko")
+
+[connection signal="button_down" from="exitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="button_down" from="playAgain" to="." method="_on_play_again_button_down"]

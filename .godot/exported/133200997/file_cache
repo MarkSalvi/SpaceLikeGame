@@ -1,0 +1,8 @@
+res://resources/enemyType1.tres::728cbdcbbbe2ce8762554e800f24d5d5::1703686078::res://.godot/exported/133200997/export-0100514d15726020aac9d1e511dc20cf-enemyType1.res
+res://scenes/bullet.tscn::267dc98f5b965ac46aafeb4b078fd930::1703808758::res://.godot/exported/133200997/export-6d8e6ff1e6f20a36e0402d27c623c86c-bullet.scn
+res://scenes/enemy.tscn::47e53b04813831a6cbe5e2784eb068cf::1703808758::res://.godot/exported/133200997/export-a930820ec0ab16db6719aff4daa500f9-enemy.scn
+res://scenes/game_over.tscn::7fa97b9697243a0bb834280c929f9094::1706112304::res://.godot/exported/133200997/export-21b8bee24a2bf9e9929bc898cc82b612-game_over.scn
+res://scenes/world.tscn::6a7a1fb57de4966139046204ac1ac2e4::1706112304::res://.godot/exported/133200997/export-6b9c1b1fd6ae6f795188dfdc89e222b0-world.scn
+res://scenes/heart.tscn::b009e049d7ab825acc47c96169128352::1703808758::res://.godot/exported/133200997/export-79edeac40d592684e55ba74036767dc5-heart.scn
+res://scenes/heart_container.tscn::b0f337063df8350c8ed2a99844e9c499::1703808758::res://.godot/exported/133200997/export-b295ef78e8f1173392af6a189ccfdec6-heart_container.scn
+res://scenes/main_menu.tscn::b00838148bc889f6a99eec267354f556::1706112304::res://.godot/exported/133200997/export-ea5c6ad4629af728dc514cefde332394-main_menu.scn

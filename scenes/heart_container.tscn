@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cso5sdp13ayok"]
+
+[ext_resource type="Script" path="res://scripts/heart_container.gd" id="1_4vc4v"]
+
+[node name="heartContainer" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.563
+offset_right = 540.0
+offset_bottom = 314.64
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vc4v")

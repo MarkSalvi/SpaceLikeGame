@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfu45dqbhguyq"]
+
+[ext_resource type="Texture2D" uid="uid://dquy8byoe3wag" path="res://textures/SpaceShooterAssetPack_Miscellaneous.png" id="1_o34cj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qebh"]
+atlas = ExtResource("1_o34cj")
+region = Rect2(16, 0, 8, 8)
+
+[node name="Heart" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(27, 24)
+offset_right = 27.0
+offset_bottom = 24.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.3, 3)
+texture = SubResource("AtlasTexture_1qebh")
+centered = false
